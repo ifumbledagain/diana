@@ -1,0 +1,136 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffebf0;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* Container */
+.container {
+    width: 90%;
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* Heading */
+h1 {
+    color: #ff4d88;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+/* Sections Layout */
+.section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px auto;
+    text-align: left;
+    width: 100%;
+}
+
+/* Alternating Layout */
+.section:nth-child(odd) {
+    flex-direction: row-reverse; /* Image on right for odd sections */
+}
+
+.section:nth-child(even) {
+    flex-direction: row; /* Image on left for even sections */
+}
+
+/* Image Styling */
+.section img {
+    width: 50%; /* Takes half the screen */
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+}
+
+/* Text Styling */
+.section p {
+    font-size: 20px;
+    color: #333;
+    margin: 0;
+    flex: 1;
+    padding: 20px;
+    text-align: left;
+}
+
+/* Final Message Box */
+.final-message {
+    margin-top: 50px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Buttons */
+button {
+    background-color: #ff4d88;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+button:hover {
+    background-color: #ff0066;
+}
+
+/* ❤️ Floating Hearts */
+.hearts-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+/* Heart Shape */
+.heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: red;
+    clip-path: polygon(50% 0%, 100% 30%, 75% 100%, 50% 75%, 25% 100%, 0% 30%);
+    opacity: 0.8;
+    animation: floatUp 5s linear infinite;
+}
+
+/* Floating Hearts Animation */
+@keyframes floatUp {
+    0% { transform: translateY(100vh); opacity: 1; }
+    100% { transform: translateY(-10vh); opacity: 0; }
+}
+
+/* Random heart sizes and speeds */
+.heart:nth-child(2n) { animation-duration: 6s; width: 25px; height: 25px; }
+.heart:nth-child(3n) { animation-duration: 4s; width: 15px; height: 15px; }
+.heart:nth-child(4n) { animation-duration: 7s; width: 30px; height: 30px; }
+
+/* 💖 Mobile-Friendly Fix */
+@media (max-width: 600px) {
+    .section {
+        flex-direction: column !important;
+        text-align: center;
+    }
+    
+    .section img {
+        width: 100%;
+        height: auto;
+    }
+
+    .section p {
+        text-align: center;
+        padding: 10px;
+    }
+}
